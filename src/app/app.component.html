@@ -1,3 +1,14 @@
-<h1>
-  {{title}}
-</h1>
+<div class="app">
+  <nav class="nav">
+    <a routerLink="/signin"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exac: true }">
+      signin
+    </a>
+    <a routerLink="/signup"
+      routerLinkActive="active">
+      signup
+    </a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

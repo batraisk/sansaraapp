@@ -1,0 +1,13 @@
+<p>
+  sing-up works!
+</p>
+<input type="text" #mail
+       placeholder="e-mail">
+       <br>
+<input type="text" #pussword
+       placeholder="pussword">
+       <br>
+<input type="text" #cunfirmPussword
+       placeholder="cunfirm pussword">
+<button (click)="send(mail.value, pussword.value, cunfirmPussword.value)">Send</button>
+<button (click)="valid()">Valid</button>
