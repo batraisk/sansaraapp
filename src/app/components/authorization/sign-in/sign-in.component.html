@@ -1,3 +1,16 @@
 <p>
   sing-in works!
 </p>
+<input type="text" [(ngModel)]="mail">
+<br>
+<input type="text" [(ngModel)]="password">
+<br>
+<button (click)="valid()">Valid</button>
+<br>
+<button (click)="signIn(mail, password)">signIn</button>
+
+<a routerLink="/signup"
+    routerLinkActive="active">
+    signup
+  </a>
+

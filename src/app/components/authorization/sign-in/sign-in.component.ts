@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorizationService }   from '../../../services/authorization.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class signInComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _authorizationService: AuthorizationService) { } 
 
-  ngOnInit() {
+  private mail:string = '';
+  private password = '';
+
+  ngOnInit() {  
+    if (this._authorizationService.currentUserData) { 
+      this.mail = this._authorizationService.currentUserData.email || ''
+    };
+  }
+
+  valid() {
+    this._authorizationService.validTocken();
+  }
+
+  signIn(mail: string, password: string): void {
+      this._authorizationService.signIn(mail, password);
+      console.log(mail);
+      console.log(password);
+      
   }
 
 }

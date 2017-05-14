@@ -5,6 +5,10 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule }     from './app-routing.module';
 
 import { Angular2TokenService } from 'angular2-token';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MdButtonModule, MdCheckboxModule} from '@angular/material';
+import 'hammerjs';
+
 //components
 import { AppComponent } from './app.component';
 import { signUpComponent } from './components/authorization/sign-up/sign-up.component';
@@ -13,6 +17,7 @@ import { HomeComponent } from './components/home/home.component';
 import { signInComponent } from './components/authorization/sign-in/sign-in.component';
 //services
 import { AuthorizationService } from './services/authorization.service';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +25,17 @@ import { AuthorizationService } from './services/authorization.service';
     signUpComponent,
     NotFoundComponent,
     HomeComponent,
-    signInComponent
+    signInComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MdButtonModule, 
+    MdCheckboxModule
   ],
   providers: [Angular2TokenService, AuthorizationService],
   bootstrap: [AppComponent]

@@ -1,13 +1,49 @@
-<p>
+<!--<p>
   sing-up works!
 </p>
 <input type="text" #mail
        placeholder="e-mail">
-       <br>
+<br>
 <input type="text" #pussword
        placeholder="pussword">
-       <br>
+<br>
 <input type="text" #cunfirmPussword
        placeholder="cunfirm pussword">
-<button (click)="send(mail.value, pussword.value, cunfirmPussword.value)">Send</button>
-<button (click)="valid()">Valid</button>
+<br>-->
+
+<!--<button (click)="valid()">Valid</button>
+<button (click)="signOut()">Out</button>-->
+
+<form #form="ngForm" (ngSubmit)="signUp(form.value)" novalidate>
+  <input type="text" #mail="ngModel" required name="mail" [ngModel]="email" 
+         pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" placeholder="email">         
+  <div *ngIf="mail.errors?.required && mail.dirty">
+    Введите e-mail
+  </div>
+  <br>
+
+  <input type="text" #password="ngModel" required name="password" [ngModel]="userPassword"
+         placeholder="пароль">
+  <div *ngIf="password.errors?.required && password.dirty">
+    Введите пароль
+  </div>
+  <br> 
+
+  <input type="text" #cunfirmPussword="ngModel" required name="cunfirmPassword" [ngModel]="userCunfirmPassword"
+       placeholder="повторите пароль">
+  <div *ngIf="cunfirmPussword.errors?.required && cunfirmPussword.dirty">
+    Введите пароль
+  </div>
+        <!--{{mail.errors | json }}-->
+  <br>
+  {{userPassword?.value}}
+  <button type="submit" md-button [disabled]="form.invalid" 
+          >signIn</button>
+</form>
+
+<a routerLink="/signin"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exac: true }">
+    signin
+  </a>
+<!--{{form.value | json }}-->
