@@ -6,7 +6,7 @@ import { AppRoutingModule }     from './app-routing.module';
 
 import { Angular2TokenService } from 'angular2-token';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdButtonModule, MdCheckboxModule} from '@angular/material';
+import {MdButtonModule, MdCheckboxModule, MdMenuModule} from '@angular/material';
 import 'hammerjs';
 
 //components
@@ -15,9 +15,12 @@ import { signUpComponent } from './components/authorization/sign-up/sign-up.comp
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { signInComponent } from './components/authorization/sign-in/sign-in.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
 //services
 import { AuthorizationService } from './services/authorization.service';
-import { HeaderComponent } from './components/header/header.component';
+import { CampaignService } from './services/campaign.service';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { HeaderComponent } from './components/header/header.component';
     NotFoundComponent,
     HomeComponent,
     signInComponent,
-    HeaderComponent
+    HeaderComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,
@@ -34,10 +38,15 @@ import { HeaderComponent } from './components/header/header.component';
     HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MdButtonModule, 
-    MdCheckboxModule
+    MdButtonModule,
+    MdCheckboxModule,
+    MdMenuModule
   ],
-  providers: [Angular2TokenService, AuthorizationService],
+  providers: [
+    Angular2TokenService,
+    AuthorizationService,
+    CampaignService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

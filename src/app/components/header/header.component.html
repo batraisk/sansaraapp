@@ -1,11 +1,12 @@
-<nav class="nav">
-  <a routerLink="/signin"
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exac: true }">
-    signin
-  </a>
-  <a routerLink="/signup"
-    routerLinkActive="active">
-    signup
-  </a>
-</nav>
+<header>
+  <div style="width:100%">
+    <button md-button><i class="material-icons">menu</i></button>
+    <button md-button 
+            [mdMenuTriggerFor]="userMenu"
+            class="btn-user">{{ user_email }}  <i class="material-icons">account_box</i></button>
+    <md-menu #userMenu="mdMenu" class="userMenuList">
+      <button md-menu-item routerLink="/signin">Сменить пользователя</button>
+    </md-menu>
+  </div>
+</header>
+

@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, pathMatch: 'full' },
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate: [Angular2TokenService] },
   { path: '**', component: NotFoundComponent }
-  
+
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
