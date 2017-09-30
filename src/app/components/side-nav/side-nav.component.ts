@@ -23,4 +23,8 @@ export class SideNavComponent implements OnInit {
     this.showCampaigns = !this.showCampaigns
   }
 
+  public closeCampaignsList(): void {
+    this.showCampaigns = false;
+  }
+
 }

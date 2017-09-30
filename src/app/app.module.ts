@@ -5,8 +5,11 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule }     from './app-routing.module';
 
 import { Angular2TokenService } from 'angular2-token';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdButtonModule, MdCheckboxModule, MdMenuModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MdButtonModule, MdCheckboxModule, MdMenuModule, MdCardModule, MdInputModule,
+  MdDatepickerModule, MdNativeDateModule
+} from '@angular/material';
 import 'hammerjs';
 
 //components
@@ -20,6 +23,11 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
 //services
 import { AuthorizationService } from './services/authorization.service';
 import { CampaignService } from './services/campaign.service';
+import { AdService } from './services/ad.service';
+import { TestComponent } from './components/test/test.component';
+import { AdsComponent } from './components/ads/ads.component';
+import { AdNewComponent } from './components/ad-new/ad-new.component';
+import { CampaignNewComponent } from './components/campaign-new/campaign-new.component';
 
 
 @NgModule({
@@ -30,7 +38,11 @@ import { CampaignService } from './services/campaign.service';
     HomeComponent,
     signInComponent,
     HeaderComponent,
-    SideNavComponent
+    SideNavComponent,
+    TestComponent,
+    AdsComponent,
+    AdNewComponent,
+    CampaignNewComponent
   ],
   imports: [
     BrowserModule,
@@ -40,12 +52,17 @@ import { CampaignService } from './services/campaign.service';
     BrowserAnimationsModule,
     MdButtonModule,
     MdCheckboxModule,
-    MdMenuModule
+    MdMenuModule,
+    MdInputModule,
+    MdDatepickerModule,
+    MdNativeDateModule,
+    MdCardModule
   ],
   providers: [
     Angular2TokenService,
     AuthorizationService,
-    CampaignService
+    CampaignService,
+    AdService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,16 @@
+<app-header></app-header>
+<app-side-nav [campaigns]="campaigns"></app-side-nav>
+<div class="global-content">
+  <div *ngFor="let ad of ads">
+    <div class="ad-card">
+      <md-card>
+        <md-card-title>{{ ad?.id }}</md-card-title>
+      </md-card>
+    </div>
+  </div>
+  <p>
+    ads works!
+  </p>
+</div>
+
+

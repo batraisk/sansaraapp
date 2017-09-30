@@ -1,0 +1,41 @@
+<app-header></app-header>
+<app-side-nav [campaigns]="campaigns"></app-side-nav>
+<div class="global-content">
+  <div class="local-container">
+    <div class="headline">
+      <h1>Создание новой компании</h1>
+    </div>
+    <form ngForm class="form">
+      <!--<span>Название компании</span>-->
+      <div class="row">
+        <md-input-container underlineRef="campName?.length"
+                            aligin="right"
+                            right
+                            hintLabel="{{100 - campaignName?.value?.length}}/100">
+          <input mdInput
+                 #campaignName
+                 name="campaign-name"
+                 underlineRef="campName?.length"
+                 placeholder="Название компании">
+        </md-input-container>
+      </div>
+
+      <div class="row">
+        <md-input-container (click)="picker.open()">
+          <input mdInput [mdDatepicker]="picker" placeholder="Дата начала показов">
+          <button mdSuffix [mdDatepickerToggle]="picker"></button>
+        </md-input-container>
+        <md-datepicker #picker></md-datepicker>
+      </div>
+
+      <div class="row">
+        <md-input-container >
+          <input mdInput
+                 #campaignName
+                 name="campaign-url"
+                 placeholder="Адрес сайта">
+        </md-input-container>
+      </div>
+    </form>
+  </div>
+</div>

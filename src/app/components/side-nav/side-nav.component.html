@@ -1,24 +1,26 @@
-<nav class="side-nav">
-  <!--<button md-mini-fab>-->
-    <a href="https://oauth.yandex.ru/authorize?response_type=code&client_id=c87e3d9cf6b9491e8bb99e2a11b01909">
-      <i class="material-icons">work</i>
-    </a>
-    <a href=javascript:void(0)
-    (click)="toggleCampaignsList()">
-      <i class="material-icons">work</i>
-    </a>
-  <!--</button>-->
-</nav>
-<nav class="back-nav" [class.campaign-open]="showCampaigns">
-  <div class="list-block">
-    <ul>
-      <div class="item-block" *ngFor="let campaign of campaigns">
-        <li>
-          <a href="javascript:void(0)">
-            {{ campaign?.name }}
-          </a>
-        </li>
-      </div>
-    </ul>
-  </div>
-</nav>
+<div class="side-nav-left">
+  <nav class="side-nav">
+    <!--<button md-mini-fab>-->
+      <a href="https://oauth.yandex.ru/authorize?response_type=code&client_id=c87e3d9cf6b9491e8bb99e2a11b01909">
+        <i class="material-icons">work</i>
+      </a>
+      <a href=javascript:void(0)
+      (click)="toggleCampaignsList()">
+        <i class="material-icons">work</i>
+      </a>
+    <!--</button>-->
+  </nav>
+  <nav class="back-nav" [class.campaign-open]="showCampaigns">
+    <div class="list-block">
+      <ul>
+        <div class="item-block" *ngFor="let campaign of campaigns">
+          <li (click)="closeCampaignsList()">
+            <a href="javascript:void(0)" routerLink="campaign/{{campaign.id}}/ads">
+              {{ campaign?.name }}
+            </a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </nav>
+</div>
